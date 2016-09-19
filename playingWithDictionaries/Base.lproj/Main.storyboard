@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,42 +19,111 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ySG-BL-9Fe">
-                                <frame key="frameInset" minX="16" minY="127" width="343" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo-1473520844623-167ad716dcae.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="2mc-uO-ydv">
+                                <frame key="frameInset" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type in the message" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="slP-42-WeX">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="NSi-2p-wza"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PNI-rd-48b"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14n-k4-HVa">
-                                <frame key="frameInset" minX="128" minY="196" width="118" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Convert"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ajG-mR-XCh">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCu-Pl-4vY">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                        <state key="normal" title="ENCODE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="encodeBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ucy-x8-AWJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="OCu-Pl-4vY" firstAttribute="centerX" secondItem="ajG-mR-XCh" secondAttribute="centerX" id="kCK-te-Ml5"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eyo-ud-2Y9">
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="DECODE">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <action selector="convertBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lqw-wf-zHu"/>
+                                    <action selector="decodeBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mfd-c4-fZ2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oB0-0m-Due">
-                                <frame key="frameInset" minX="16" minY="75" width="343" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="178" translatesAutoresizingMaskIntoConstraints="NO" id="6sk-vz-gAY">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cqM-Ub-pBC">
+                                    <frame key="frameInset"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The decoded message will be displayed here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIG-BJ-CgR">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="162" id="dMP-kj-27L"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="OIG-BJ-CgR" firstAttribute="top" secondItem="cqM-Ub-pBC" secondAttribute="topMargin" id="275-EQ-PQc"/>
+                                        <constraint firstItem="OIG-BJ-CgR" firstAttribute="leading" secondItem="cqM-Ub-pBC" secondAttribute="leadingMargin" id="f1n-9B-kV3"/>
+                                        <constraint firstItem="OIG-BJ-CgR" firstAttribute="trailing" secondItem="cqM-Ub-pBC" secondAttribute="trailingMargin" id="z0e-la-rPF"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkS-FR-gD9">
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="OFFSET">
+                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="offsetBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B1l-30-iLm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6sk-vz-gAY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0U6-HA-Svs"/>
+                            <constraint firstItem="6sk-vz-gAY" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="0tD-f8-q8U"/>
+                            <constraint firstItem="6sk-vz-gAY" firstAttribute="top" secondItem="slP-42-WeX" secondAttribute="bottom" constant="26" id="1cN-81-Tla"/>
+                            <constraint firstItem="slP-42-WeX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7JN-pJ-2bv"/>
+                            <constraint firstItem="slP-42-WeX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="120" id="LoL-13-bkc"/>
+                            <constraint firstItem="6sk-vz-gAY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-48.5" id="T8Q-wN-IrK"/>
+                            <constraint firstItem="RkS-FR-gD9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TJq-lq-Ma1"/>
+                            <constraint firstItem="Eyo-ud-2Y9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TQ1-2s-LmJ"/>
+                            <constraint firstItem="slP-42-WeX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="W9z-6A-ovL"/>
+                            <constraint firstItem="RkS-FR-gD9" firstAttribute="top" secondItem="Eyo-ud-2Y9" secondAttribute="bottom" constant="8" id="eU2-lC-JFg"/>
+                            <constraint firstItem="6sk-vz-gAY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="p64-Xt-Uwg"/>
+                            <constraint firstItem="slP-42-WeX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="p6C-LB-fe4"/>
+                            <constraint firstItem="ajG-mR-XCh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pJw-CM-1jH"/>
+                            <constraint firstItem="6sk-vz-gAY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="uqD-mt-zXH"/>
+                            <constraint firstItem="Eyo-ud-2Y9" firstAttribute="top" secondItem="ajG-mR-XCh" secondAttribute="bottom" constant="8" id="vII-t0-4uv"/>
+                            <constraint firstItem="ajG-mR-XCh" firstAttribute="top" secondItem="6sk-vz-gAY" secondAttribute="bottom" constant="66" id="vNY-Rb-T6D"/>
+                            <constraint firstAttribute="trailing" secondItem="6sk-vz-gAY" secondAttribute="trailing" constant="16" id="zz6-We-niQ"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="textField" destination="ySG-BL-9Fe" id="bdJ-Vz-pDd"/>
-                        <outlet property="textLabel" destination="oB0-0m-Due" id="YhL-t8-P9V"/>
+                        <outlet property="blurWindow" destination="6sk-vz-gAY" id="xhI-Mj-HcB"/>
+                        <outlet property="decodeButton" destination="Eyo-ud-2Y9" id="k7C-et-m8i"/>
+                        <outlet property="displayMessage" destination="OIG-BJ-CgR" id="6MF-5k-t8F"/>
+                        <outlet property="encodeButton" destination="OCu-Pl-4vY" id="NLn-lv-ytA"/>
+                        <outlet property="msgTextField" destination="slP-42-WeX" id="qhF-M1-Vf8"/>
+                        <outlet property="offsetButton" destination="RkS-FR-gD9" id="GGa-Ef-bc4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="136.28185907046478"/>
+            <point key="canvasLocation" x="-148" y="-395"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="photo-1473520844623-167ad716dcae.jpeg" width="864" height="576"/>
+    </resources>
 </document>
